@@ -19,4 +19,12 @@ public class HibernateUtilTest {
 		pessoa.setSenha("789");
 		daoGeneric.salvar(pessoa);
 	}
+	@Test
+	public void testeBuscar() {
+		DaoGeneric<UsuarioPessoa> daoGeneric = new DaoGeneric<UsuarioPessoa>();
+		UsuarioPessoa pessoa = new UsuarioPessoa();
+		pessoa.setId(4L);
+		pessoa = daoGeneric.pesquisar(pessoa);
+		System.out.println(pessoa);
+	}
 }
