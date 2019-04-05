@@ -75,12 +75,25 @@ public class HibernateUtilTest {
 			System.out.println("------------------------------------------------");
 		}
 	}*/
-	@Test
+	/*@Test
 	public void testeQueryListParameter() {
 		DaoGeneric<UsuarioPessoa> daoGeneric = new DaoGeneric<UsuarioPessoa>();
 		List<UsuarioPessoa> list = daoGeneric.getEntityManager().createQuery(
 				"from UsuarioPessoa where nome = :nome")
 				.setParameter("nome", "Williamis").getResultList();
+		for(UsuarioPessoa usuarioPessoa : list) {
+			System.out.println(usuarioPessoa);
+			System.out.println("------------------------------------------------");
+		}
+	}*/
+	@Test
+	public void testeQueryListParameterCondition() {
+		DaoGeneric<UsuarioPessoa> daoGeneric = new DaoGeneric<UsuarioPessoa>();
+		List<UsuarioPessoa> list = daoGeneric.getEntityManager().createQuery(
+				"from UsuarioPessoa where nome = :nome or sobrenome = :sobrenome")
+				.setParameter("nome", "Suzana")
+				.setParameter("sobrenome", "Lins")
+				.getResultList();
 		for(UsuarioPessoa usuarioPessoa : list) {
 			System.out.println(usuarioPessoa);
 			System.out.println("------------------------------------------------");
