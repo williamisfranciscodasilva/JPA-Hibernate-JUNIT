@@ -44,10 +44,20 @@ public class HibernateUtilTest {
 		UsuarioPessoa pessoa = daoGeneric.pesquisar2(2L, UsuarioPessoa.class);
 		daoGeneric.deletarPorId(pessoa);
 	}*/
-	@Test
+	/*@Test
 	public void testeConsultar() {
 		DaoGeneric<UsuarioPessoa> daoGeneric = new DaoGeneric<UsuarioPessoa>();
 		List<UsuarioPessoa> list = daoGeneric.listar(UsuarioPessoa.class);
+		for(UsuarioPessoa usuarioPessoa : list) {
+			System.out.println(usuarioPessoa);
+			System.out.println("------------------------------------------------");
+		}
+	}*/
+	@Test
+	public void testQueryList() {
+		DaoGeneric<UsuarioPessoa> daoGeneric = new DaoGeneric<UsuarioPessoa>();
+		List<UsuarioPessoa> list = daoGeneric.getEntityManager().createQuery(
+				"from UsuarioPessoa").getResultList();
 		for(UsuarioPessoa usuarioPessoa : list) {
 			System.out.println(usuarioPessoa);
 			System.out.println("------------------------------------------------");
