@@ -57,7 +57,7 @@ public class HibernateUtilTest {
 	public void testQueryList() {
 		DaoGeneric<UsuarioPessoa> daoGeneric = new DaoGeneric<UsuarioPessoa>();
 		List<UsuarioPessoa> list = daoGeneric.getEntityManager().createQuery(
-				"from UsuarioPessoa").getResultList();
+				"from UsuarioPessoa where nome ='Williamis'").getResultList();
 		for(UsuarioPessoa usuarioPessoa : list) {
 			System.out.println(usuarioPessoa);
 			System.out.println("------------------------------------------------");
