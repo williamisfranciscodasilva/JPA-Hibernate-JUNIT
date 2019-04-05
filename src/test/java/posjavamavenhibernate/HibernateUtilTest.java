@@ -86,7 +86,7 @@ public class HibernateUtilTest {
 			System.out.println("------------------------------------------------");
 		}
 	}*/
-	@Test
+	/*@Test
 	public void testeQueryListParameterCondition() {
 		DaoGeneric<UsuarioPessoa> daoGeneric = new DaoGeneric<UsuarioPessoa>();
 		List<UsuarioPessoa> list = daoGeneric.getEntityManager().createQuery(
@@ -98,5 +98,12 @@ public class HibernateUtilTest {
 			System.out.println(usuarioPessoa);
 			System.out.println("------------------------------------------------");
 		}
+	}*/
+	@Test
+	public void testeQuerySomaIdade() {
+		DaoGeneric<UsuarioPessoa> daoGeneric = new DaoGeneric<UsuarioPessoa>();
+		Long somaIdade = (Long) daoGeneric.getEntityManager().createQuery(
+				"select sum(u.idade) from UsuarioPessoa u ").getSingleResult();
+		System.out.println("Soma de todas as idades --> "+ somaIdade);
 	}
 }
