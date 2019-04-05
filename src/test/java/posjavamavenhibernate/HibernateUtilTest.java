@@ -67,7 +67,7 @@ public class HibernateUtilTest {
 	public void testQueryListMaxResult() {
 		DaoGeneric<UsuarioPessoa> daoGeneric = new DaoGeneric<UsuarioPessoa>();
 		List<UsuarioPessoa> list = daoGeneric.getEntityManager().createQuery(
-				"from UsuarioPessoa order by nome")
+				"from UsuarioPessoa order by id")
 				.setMaxResults(7)
 				.getResultList();
 		for(UsuarioPessoa usuarioPessoa : list) {
