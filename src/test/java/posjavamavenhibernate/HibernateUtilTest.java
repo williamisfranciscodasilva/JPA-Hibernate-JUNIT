@@ -106,11 +106,19 @@ public class HibernateUtilTest {
 				"select sum(u.idade) from UsuarioPessoa u ").getSingleResult();
 		System.out.println("Soma de todas as idades --> "+ somaIdade);
 	}*/
-	@Test
+	/*@Test
 	public void testeQueryMediaIdade() {
 		DaoGeneric<UsuarioPessoa> daoGeneric = new DaoGeneric<UsuarioPessoa>();
 		Double mediaIdade = (Double) daoGeneric.getEntityManager().createQuery(
 				"select avg(u.idade) from UsuarioPessoa u ").getSingleResult();
 		System.out.println("A média de todas as idades --> "+ mediaIdade);
+	}*/
+	@Test
+	public void testNamedQuery1() {
+		DaoGeneric<UsuarioPessoa> daoGeneric = new DaoGeneric<UsuarioPessoa>();
+		List<UsuarioPessoa> list = daoGeneric.getEntityManager().createNamedQuery("UsuarioPessoa.Todos").getResultList();
+		for(UsuarioPessoa usuarioPessoa : list) {
+			System.out.println(usuarioPessoa);
+		}
 	}
 }
