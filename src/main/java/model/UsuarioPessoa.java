@@ -1,11 +1,14 @@
 package model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
 @Entity
 @NamedQueries({
@@ -25,7 +28,17 @@ public class UsuarioPessoa {
 	private String senha;
 	private int idade;
 	
+	@OneToMany(mappedBy = "usuarioPessoa")
+	private List<TelefoneUser> telefoneUser;
 	
+	
+	
+	public List<TelefoneUser> getTelefoneUser() {
+		return telefoneUser;
+	}
+	public void setTelefoneUser(List<TelefoneUser> telefoneUser) {
+		this.telefoneUser = telefoneUser;
+	}
 	public int getIdade() {
 		return idade;
 	}
