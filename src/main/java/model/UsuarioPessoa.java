@@ -9,7 +9,8 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "UsuarioPessoa.Todos", query = "select u from UsuarioPessoa u")
+	@NamedQuery(name = "UsuarioPessoa.Todos", query = "select u from UsuarioPessoa u"),
+	@NamedQuery(name = "UsuarioPessoa.buscaPorNome", query = "select u from UsuarioPessoa u where u.nome = :nome")
 })
 public class UsuarioPessoa {
 	
