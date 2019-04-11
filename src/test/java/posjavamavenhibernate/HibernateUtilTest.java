@@ -133,7 +133,7 @@ public class HibernateUtilTest {
 			System.out.println(usuarioPessoa);
 		}
 	}*/
-	@Test
+	/*@Test
 	public void testGravaTelefone() {
 		DaoGeneric daoGeneric = new DaoGeneric();
 		UsuarioPessoa pessoa = (UsuarioPessoa) daoGeneric.pesquisar2(5L,UsuarioPessoa.class);
@@ -142,5 +142,15 @@ public class HibernateUtilTest {
 		telefoneUser.setNumero("856985689");
 		telefoneUser.setUsuarioPessoa(pessoa);
 		daoGeneric.salvar(telefoneUser);
+	}*/
+	@Test
+	public void testConsultaTelefones() {
+		DaoGeneric daoGeneric = new DaoGeneric();
+		UsuarioPessoa pessoa = (UsuarioPessoa) daoGeneric.pesquisar2(5L,UsuarioPessoa.class);
+		for(TelefoneUser fone : pessoa.getTelefoneUser()) {
+			System.out.println(fone.getNumero());
+			System.out.println(fone.getTipo());
+			System.out.println(fone.getUsuarioPessoa().getNome());
+		}
 	}
 }
