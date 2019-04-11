@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.Test;
 
 import dao.DaoGeneric;
+import model.TelefoneUser;
 import model.UsuarioPessoa;
 
 public class HibernateUtilTest {
@@ -121,7 +122,7 @@ public class HibernateUtilTest {
 			System.out.println(usuarioPessoa);
 		}
 	}*/
-	@Test
+	/*@Test
 	public void testNamedQuery2() {
 		DaoGeneric<UsuarioPessoa> daoGeneric = new DaoGeneric<UsuarioPessoa>();
 		List<UsuarioPessoa> list = daoGeneric.getEntityManager()
@@ -131,5 +132,15 @@ public class HibernateUtilTest {
 		for(UsuarioPessoa usuarioPessoa : list) {
 			System.out.println(usuarioPessoa);
 		}
+	}*/
+	@Test
+	public void testGravaTelefone() {
+		DaoGeneric daoGeneric = new DaoGeneric();
+		UsuarioPessoa pessoa = (UsuarioPessoa) daoGeneric.pesquisar2(5L,UsuarioPessoa.class);
+		TelefoneUser telefoneUser = new TelefoneUser();
+		telefoneUser.setTipo("Celular");
+		telefoneUser.setNumero("856985689");
+		telefoneUser.setUsuarioPessoa(pessoa);
+		daoGeneric.salvar(telefoneUser);
 	}
 }
